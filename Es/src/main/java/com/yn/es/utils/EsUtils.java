@@ -1,8 +1,8 @@
 package com.yn.es.utils;
 
-import cn.hutool.json.JSONObject;
+import cn.hutool.core.util.ObjectUtil;
 import com.alibaba.fastjson.JSON;
-import io.micrometer.common.util.StringUtils;
+import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.admin.indices.delete.DeleteIndexRequest;
 import org.elasticsearch.action.delete.DeleteRequest;
@@ -32,7 +32,6 @@ import org.elasticsearch.search.fetch.subphase.FetchSourceContext;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightBuilder;
 import org.elasticsearch.search.fetch.subphase.highlight.HighlightField;
 import org.elasticsearch.search.sort.SortOrder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -223,7 +222,7 @@ public class EsUtils {
      */
     public Map<String,Object> searchDataById(String index, String id, String fields) throws IOException {
         GetRequest request = new GetRequest(index, id);
-        if (StringUtils.isNotEmpty(fields)){
+        if (ObjectUtil.isNotEmpty(fields)){
             //只查询特定字段。如果需要查询所有字段则不设置该项。
             request.fetchSourceContext(new FetchSourceContext(true,fields.split(","), Strings.EMPTY_ARRAY));
         }
@@ -309,7 +308,7 @@ public class EsUtils {
                                                     String highlightField) throws IOException {
         SearchRequest request = new SearchRequest(index);
         SearchSourceBuilder builder = query;
-        if (StringUtils.isNotEmpty(fields)){
+        if (ObjectUtil.isNotEmpty(fields)){
             //只查询特定字段。如果需要查询所有字段则不设置该项。
             builder.fetchSource(new FetchSourceContext(true,fields.split(","),Strings.EMPTY_ARRAY));
         }
@@ -317,7 +316,7 @@ public class EsUtils {
         //设置确定结果要从哪个索引开始搜索的from选项，默认为0
         builder.from(from);
         builder.size(size);
-        if (StringUtils.isNotEmpty(sortField)){
+        if (ObjectUtil.isNotEmpty(sortField)){
             //排序字段，注意如果proposal_no是text类型会默认带有keyword性质，需要拼接.keyword
             builder.sort(sortField+".keyword", SortOrder.ASC);
         }
