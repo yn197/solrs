@@ -4,7 +4,6 @@ import com.alibaba.fastjson.JSONObject;
 import com.yn.es.service.IndexService;
 import com.yn.es.utils.EsUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.action.ActionListener;
 import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.action.index.IndexResponse;
 import org.elasticsearch.client.RequestOptions;

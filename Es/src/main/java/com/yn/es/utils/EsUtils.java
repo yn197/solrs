@@ -150,7 +150,10 @@ public class EsUtils {
     public String addData(JSONObject jsonObject, String index) throws IOException {
         return addData(jsonObject, index, UUID.randomUUID().toString().replaceAll("-", "").toUpperCase());
     }
-
+    //todo 缺少bulkAdd     并且带有同时update，delete，add
+    //todo 缺少bulkUpdate，并且带有同时update，delete，add
+    //todo 索引同步
+    //todo 数据同步
     /**
      * 通过ID删除数据
      *
