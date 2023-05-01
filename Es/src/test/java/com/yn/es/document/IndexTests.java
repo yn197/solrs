@@ -1,4 +1,4 @@
-package com.yn.es;
+package com.yn.es.document;
 
 import com.alibaba.fastjson.JSONObject;
 import com.yn.es.service.IndexService;

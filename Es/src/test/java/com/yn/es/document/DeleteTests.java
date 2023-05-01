@@ -1,4 +1,4 @@
-package com.yn.es;
+package com.yn.es.document;
 
 import com.yn.es.service.DeleteService;
 import com.yn.es.utils.EsUtils;
@@ -21,16 +21,13 @@ public class DeleteTests implements DeleteService {
     @Resource
     private RestHighLevelClient restHighLevelClient;
 
-    @Resource
-    private EsUtils esUtils;
-
     /**
      * 通过id进行删除
      *
      * @throws IOException
      */
     @Test
-    public void deleteById() throws IOException, InterruptedException {
+    public void deleteById() throws IOException {
         DeleteRequest deleteRequest = new DeleteRequest(
                 "posts",
                 "1");

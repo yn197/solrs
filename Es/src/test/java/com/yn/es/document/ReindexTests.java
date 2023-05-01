@@ -1,14 +1,8 @@
-package com.yn.es;
+package com.yn.es.document;
 
-import com.yn.es.utils.EsUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.elasticsearch.action.bulk.BulkRequest;
-import org.elasticsearch.action.index.IndexRequest;
 import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
-import org.elasticsearch.common.unit.TimeValue;
-import org.elasticsearch.common.xcontent.XContentType;
-import org.elasticsearch.index.VersionType;
 import org.elasticsearch.index.query.TermQueryBuilder;
 import org.elasticsearch.index.reindex.ReindexRequest;
 import org.junit.jupiter.api.Test;
@@ -25,16 +19,13 @@ public class ReindexTests {
     @Resource
     private RestHighLevelClient restHighLevelClient;
 
-    @Resource
-    private EsUtils esUtils;
-
     /**
      * 索引同步
      *
      * @throws IOException
      */
     @Test
-    public void reindex() throws IOException, InterruptedException {
+    public void reindex() throws IOException {
         /**
          POST _reindex
          {

@@ -1,4 +1,4 @@
-package com.yn.es;
+package com.yn.es.document;
 
 import com.yn.es.service.UpdateService;
 import com.yn.es.utils.EsUtils;

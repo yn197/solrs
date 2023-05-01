@@ -1,6 +1,5 @@
-package com.yn.es;
+package com.yn.es.document;
 
-import com.yn.es.utils.EsUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.bulk.BulkRequest;
 import org.elasticsearch.action.index.IndexRequest;
@@ -22,16 +21,13 @@ public class BulkTests {
     @Resource
     private RestHighLevelClient restHighLevelClient;
 
-    @Resource
-    private EsUtils esUtils;
-
     /**
      * 批量操作
      *
      * @throws IOException
      */
     @Test
-    public void bulkAdd() throws IOException, InterruptedException {
+    public void bulkAdd() throws IOException{
         BulkRequest request = new BulkRequest();
         request.add(new IndexRequest("posts").id("7")
                 .source(XContentType.JSON,"field", "foo"));

@@ -154,6 +154,7 @@ public class EsUtils {
     //todo 缺少bulkUpdate，并且带有同时update，delete，add
     //todo 索引同步
     //todo 数据同步
+    //todo 条件修改
     /**
      * 通过ID删除数据
      *
