@@ -41,8 +41,8 @@ public class UpdateTests implements UpdateService {
      */
     @Test
     public void updateById() throws IOException {
-        Map<String, Object> parameters = singletonMap("count", 4);
-        esUtils.updateDataById(parameters, "posts", "2");
+        Map<String, Object> parameters = singletonMap("age", 18);
+        esUtils.updateDataById(parameters, "posts", "5");
     }
 
 
