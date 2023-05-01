@@ -1,7 +1,6 @@
 package com.yn.es.document;
 
 import com.yn.es.service.DeleteService;
-import com.yn.es.utils.EsUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.elasticsearch.action.delete.DeleteRequest;
 import org.elasticsearch.action.delete.DeleteResponse;

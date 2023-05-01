@@ -9,14 +9,12 @@ import org.elasticsearch.common.unit.TimeValue;
 import org.elasticsearch.common.xcontent.XContentType;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.IOException;
 
 @SpringBootTest
 @Slf4j
-@Service
 public class BulkTests {
     @Resource
     private RestHighLevelClient restHighLevelClient;
@@ -27,14 +25,14 @@ public class BulkTests {
      * @throws IOException
      */
     @Test
-    public void bulkAdd() throws IOException{
+    public void bulkAdd() throws IOException {
         BulkRequest request = new BulkRequest();
         request.add(new IndexRequest("posts").id("7")
-                .source(XContentType.JSON,"field", "foo"));
+                .source(XContentType.JSON, "field", "foo"));
         request.add(new IndexRequest("posts").id("8")
-                .source(XContentType.JSON,"field", "bar"));
+                .source(XContentType.JSON, "field", "bar"));
         request.add(new IndexRequest("posts").id("9")
-                .source(XContentType.JSON,"field", "baz"));
+                .source(XContentType.JSON, "field", "baz"));
         //将策略刷新为 WriteRequest.RefreshPolicy 实例
         request.timeout(TimeValue.timeValueMinutes(2));
         restHighLevelClient.bulk(request, RequestOptions.DEFAULT);

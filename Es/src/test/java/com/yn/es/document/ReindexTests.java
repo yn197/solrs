@@ -7,14 +7,12 @@ import org.elasticsearch.index.query.TermQueryBuilder;
 import org.elasticsearch.index.reindex.ReindexRequest;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.IOException;
 
 @SpringBootTest
 @Slf4j
-@Service
 public class ReindexTests {
     @Resource
     private RestHighLevelClient restHighLevelClient;

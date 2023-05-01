@@ -10,14 +10,12 @@ import org.elasticsearch.index.reindex.UpdateByQueryRequest;
 import org.elasticsearch.script.Script;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.io.IOException;
 
 @SpringBootTest
 @Slf4j
-@Service
 public class UpdateByQueryTests {
     @Resource
     private RestHighLevelClient restHighLevelClient;
