@@ -52,7 +52,7 @@ public class BulkTests {
     @Test
     public void bulkAdd2() throws IOException {
         BulkRequest request = new BulkRequest();
-        for (int i = 0; i < 100000; i++) {
+//        for (int i = 0; i < 100000; i++) {
             request.add(new IndexRequest("posts").id(SnowflakeIdWorker.getNextId())
                     .source(XContentType.JSON, "user", "bob", "postDate", new Date(), "message", "trying out es"));
             request.add(new IndexRequest("posts").id(SnowflakeIdWorker.getNextId())
@@ -62,6 +62,6 @@ public class BulkTests {
             //将策略刷新为 WriteRequest.RefreshPolicy 实例
 //            request.timeout(TimeValue.timeValueMinutes(2));
             restHighLevelClient.bulk(request, RequestOptions.DEFAULT);
-        }
+//        }
     }
 }
