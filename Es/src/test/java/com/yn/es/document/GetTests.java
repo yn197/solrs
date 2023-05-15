@@ -34,7 +34,7 @@ public class GetTests implements GetService {
      */
     @Test
     public void getById() throws IOException {
-        GetRequest getRequest = new GetRequest("posts", "1");
+        GetRequest getRequest = new GetRequest("posts", "302192083744067585");
         GetResponse response = restHighLevelClient.get(getRequest, RequestOptions.DEFAULT);
         log.info("查询数据:{}", response.getSourceAsMap());
     }
